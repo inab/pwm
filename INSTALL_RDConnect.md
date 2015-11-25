@@ -1,5 +1,27 @@
-Installation instructions for RD-Connect
+Installation instructions for RD-Connect (CentOS)
 =====
+
+* Run this
+```bash
+git clone https://github.com/inab/pwm.git /tmp/pwm
+cd /tmp/pwm
+mvn clean package
+ln -s "$(basename target/pwm-*.war)" target/pwm.war
+```
+* As we want the pwm-data directory outside the to-be-deployed pwm.war, we first need to create it:
+```bash
+mkdir -p /etc/cas/pwm-data
+chown tomcat: /etc/cas/pwm-data
+```
+
+* We need to tell Tomcat and the webapp where the directory is. So, edit `/etc/sysconfig/tomcat7`, and add next declarations to `JAVA_OPTS`
+
+```bash
+export JAVA_OPTS=" -Dpwm.applicationPath=/etc/cas/pwm-data"
+```
+
+* Deploy the war
+
 cd /tmp 
 wget http://www.pwm-project.org/artifacts/pwm/pwm-1.8.0-SNAPSHOT-2015-11-18T23%3A18%3A27Z-pwm-bundle.zip 
 mkdir pwm 
