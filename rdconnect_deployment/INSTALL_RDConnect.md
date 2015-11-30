@@ -1,6 +1,27 @@
 Installation instructions for RD-Connect (CentOS)
 =====
 
+* First, create a user `pwmTestUser` in the LDAP directory, which will be used by PWM periodic checks
+
+```bash
+domainDN='dc=rd-connect,dc=eu'
+adminName='admin'
+adminDN="cn=$adminName,$domainDN"
+pwmTestUserHashPass="$(slappasswd -s 'PWMCHANGEIT')"
+cat > /tmp/pwm-test-user.ldif <<EOF
+dn: cn=pwmTestUser,ou=people,$domainDN
+objectClass: inetOrgPerson
+objectClass: basicRDproperties
+uid: root
+disabledAccount: FALSE
+userPassword: $pwmTestUserHashPass
+cn: pwmTestUser
+sn: pwmTestUser
+description: A user named pwmTestUser
+EOF
+ldapadd -x -D "$adminDN" -W -f /tmp/pwm-test-user.ldif
+```
+
 * Run this
 ```bash
 git clone https://github.com/inab/pwm.git /tmp/pwm
