@@ -65,20 +65,20 @@ systemctl restart tomcat7
  2b.4.- LDAP Profile Display Name: cn  
 			
 * Step 3.- Modules>Administration:
-		![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step3.png)
-			Administration Permission:
-				LDAP Profile: default
-				LDAP Search Filter: (&(objectClass=basicRDproperties)(memberOf=cn=pwmAdmin,ou=groups,dc=rd-connect,dc=eu))
-				LDAP Base DN: ou=people,dc=rd-connect,dc=eu
+ ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step3.png)
+ Administration Permission:  
+	LDAP Profile: default  
+	LDAP Search Filter: (&(objectClass=basicRDproperties)(memberOf=cn=pwmAdmin,ou=groups,dc=rd-connect,dc=eu))  
+	LDAP Base DN: ou=people,dc=rd-connect,dc=eu  
 	
 * Step 4.- Modules>Change Password:
-		![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step4.png)
-			Change Password Permission:
-				LDAP Profile: all
-				LDAP Search Filter: (&(objectClass=basicRDproperties)(disabledAccount=FALSE))
-				LDAP Base DN: ou=people,dc=rd-connect,dc=eu
-				
-			Require Current Password during change: True
+ ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step4.png)
+ Change Password Permission:
+	LDAP Profile: all  
+	LDAP Search Filter: (&(objectClass=basicRDproperties)(disabledAccount=FALSE))  
+	LDAP Base DN: ou=people,dc=rd-connect,dc=eu  
+		
+ Require Current Password during change: True
 	
 * Step 5.- Modules>Forgotten Password>Forgotten Password Profiles>default:
 		![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step5.png)
