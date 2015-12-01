@@ -52,7 +52,7 @@ systemctl restart tomcat7
 		
 * Step 2.- LDAP>LDAP Directories>Default:
  ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step2a.png)  
- - Change LDAP URL to ldaps://ldap.rd-connect.eu:636.  
+ - LDAP URL: ldaps://ldap.rd-connect.eu:636.  
  - LDAP Certificates: Import from Server.   
  - LDAP Proxy User: cn=admin,dc=rd-connect,dc=eu  
  - LDAP Proxy Password: Change it!  
@@ -66,97 +66,97 @@ systemctl restart tomcat7
 			
 * Step 3.- Modules>Administration:
  ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step3.png)  
- Administration Permission:  
-	LDAP Profile: default  
-	LDAP Search Filter: (&(objectClass=basicRDproperties)(memberOf=cn=pwmAdmin,ou=groups,dc=rd-connect,dc=eu))  
-	LDAP Base DN: ou=people,dc=rd-connect,dc=eu  
+ - Administration Permission:  
+ 	- LDAP Profile: default  
+	- LDAP Search Filter: (&(objectClass=basicRDproperties)(memberOf=cn=pwmAdmin,ou=groups,dc=rd-connect,dc=eu))  
+	- LDAP Base DN: ou=people,dc=rd-connect,dc=eu  
 	
 * Step 4.- Modules>Change Password:
  ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step4.png)  
- Change Password Permission:
-	LDAP Profile: all  
-	LDAP Search Filter: (&(objectClass=basicRDproperties)(disabledAccount=FALSE))  
-	LDAP Base DN: ou=people,dc=rd-connect,dc=eu  
+ - Change Password Permission:
+	- LDAP Profile: all  
+	- LDAP Search Filter: (&(objectClass=basicRDproperties)(disabledAccount=FALSE))  
+	- LDAP Base DN: ou=people,dc=rd-connect,dc=eu  
 		
- Require Current Password during change: True  
+ - Require Current Password during change: True  
 	
 * Step 5.- Modules>Forgotten Password>Forgotten Password Profiles>default:
  ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step5.png)  
- Forgotten Password Password Profile Match  
-	LDAP Profile: all  
-	LDAP Search Filter: (&(objectClass=basicRDproperties)(disabledAccount=FALSE))  
-	LDAP Base DN: ou=people,dc=rd-connect,dc=eu  
+ - Forgotten Password Password Profile Match  
+	- LDAP Profile: all  
+	- LDAP Search Filter: (&(objectClass=basicRDproperties)(disabledAccount=FALSE))  
+	- LDAP Base DN: ou=people,dc=rd-connect,dc=eu  
 	
 * Step 6.- Modules>Forgotten Password>Forgotten Password Settings
  ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step6.png)  
-	Forgotten Password User Search Form: See image6  
-	Forgotten Password User Search Filter: (&(objectClass=basicRDproperties)(objectClass=inetOrgPerson)(uid=%uid%)(mail=%mail%)(disabledAccount=FALSE))  
+ - Forgotten Password User Search Form: See image6  
+ - Forgotten Password User Search Filter: (&(objectClass=basicRDproperties)(objectClass=inetOrgPerson)(uid=%uid%)(mail=%mail%)(disabledAccount=FALSE))  
 				
 * Step 7.- Policies>Challenge Policies>default
  ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step7a.png)  
- Challenge Profile Match:  
-	LDAP Profile: all  
-	LDAP Search Filter: (&(objectClass=basicRDproperties)(disabledAccount=FALSE))  
-	LDAP Base DN: ou=people,dc=rd-connect,dc=eu  
+ - Challenge Profile Match:  
+	- LDAP Profile: all  
+	- LDAP Search Filter: (&(objectClass=basicRDproperties)(disabledAccount=FALSE))  
+	- LDAP Base DN: ou=people,dc=rd-connect,dc=eu  
  ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step7b.png)  
- Minimum Random Required: 1  
- Minimum Random Challenges Required During Setup: 3  
+ - Minimum Random Required: 1  
+ - Minimum Random Challenges Required During Setup: 3  
 	
 * Step 8.- Policies>Challenge Settings
  ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step8.png)  
-	Save Challenge Permissions:  
-		LDAP Profile: all  
-		LDAP Search Filter: (&(objectClass=basicRDproperties)(disabledAccount=FALSE))  
-		LDAP Base DN: ou=people,dc=rd-connect,dc=eu  
-	Check Response Match:
-		LDAP Profile: all  
-		LDAP Search Filter: (&(objectClass=basicRDproperties)(disabledAccount=FALSE))  
-		LDAP Base DN: ou=people,dc=rd-connect,dc=eu  
+ - Save Challenge Permissions:  
+	- LDAP Profile: all  
+	- LDAP Search Filter: (&(objectClass=basicRDproperties)(disabledAccount=FALSE))  
+	- LDAP Base DN: ou=people,dc=rd-connect,dc=eu  
+ - Check Response Match:
+	- LDAP Profile: all  
+	- LDAP Search Filter: (&(objectClass=basicRDproperties)(disabledAccount=FALSE))  
+	- LDAP Base DN: ou=people,dc=rd-connect,dc=eu  
 	
 * Step 9.- Policies> Password Policies>default
  ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step9a.png)  
-	Password Policy Profile Match  
-		LDAP Profile: all  
-		LDAP Search Filter: (&(objectClass=basicRDproperties)(disabledAccount=FALSE))  
-		LDAP Base DN: ou=people,dc=rd-connect,dc=eu  
-		Minimum Length: 12  
-		Maximum sequential Repeat: 3  
-		Minimum numeric: 1  
+ - Password Policy Profile Match  
+	- LDAP Profile: all  
+	- LDAP Search Filter: (&(objectClass=basicRDproperties)(disabledAccount=FALSE))  
+	- LDAP Base DN: ou=people,dc=rd-connect,dc=eu  
+	- Minimum Length: 12  
+	- Maximum sequential Repeat: 3  
+	- Minimum numeric: 1  
 ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step9b.png)  
-	Minimum Alphabetic: 1  
-	Minimum Uppercase: 1  
+ - Minimum Alphabetic: 1  
+ - Minimum Uppercase: 1  
 	Minimum Lowercase: 1  
 ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step9c.png)  
-	Disallowed Values: Add any amount of disallowed values. See image for an example of them  
-	Disallowed Attributes: cn, givenName, sn, mail, uid  
-	Minimum Password Strength: 45  
-	Maximum Consecutive Characters: 4  
+ - Disallowed Values: Add any amount of disallowed values. See image for an example of them  
+ - Disallowed Attributes: cn, givenName, sn, mail, uid  
+ - Minimum Password Strength: 45  
+ - Maximum Consecutive Characters: 4  
 	
 * Step 10.- Policies>Password Settings:
  ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step10.png)  
-	Password Policy Source: Local  
-	Password is case sensitive: True  
+ - Password Policy Source: Local  
+ - Password is case sensitive: True  
 				
 * Step 11.- Settings>Application:
  ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step11.png)  
-	Site URL: https://rdconnectcas.rd-connect.eu:9443/pwm  
-	Enable Version Checking: False  
-	Enable Anonymous Statistics Publishing: False  
-	Logout URL: http://rd-connect.eu/  
-	Home URL: https://platform.rd-connect.eu/  
+ - Site URL: https://rdconnectcas.rd-connect.eu:9443/pwm  
+ - Enable Version Checking: False  
+ - Enable Anonymous Statistics Publishing: False  
+ - Logout URL: http://rd-connect.eu/  
+ - Home URL: https://platform.rd-connect.eu/  
 	
 * Step 12.- Settings>Captcha:
  ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step12.png)  
-	Captcha Protected Pages:  
-		Enabled: Login Form, Forgotten Password, New User Registration  
+ - Captcha Protected Pages:  
+ 	- Enabled: Login Form, Forgotten Password, New User Registration  
 	
 * Step 13.- Settings>Security>Application Security:
  ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step13.png)  
-	Security: Changeit!!  
+ - Security: Changeit!!  
 					
 * Step 14.- Settings>Security>Web Security:
  ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step14.png)  
-	Require HTTPS: True  
+ - Require HTTPS: True  
     
 * Step 15.- Save changes 	
 
