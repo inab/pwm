@@ -52,17 +52,17 @@ systemctl restart tomcat7
 		
 * Step 2.- LDAP>LDAP Directories>Default:
  ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step2a.png)  
- 2a.1.- Change LDAP URL to ldaps://ldap.rd-connect.eu:636.  
- 2a.2.- LDAP Certificates: Import from Server.   
- 2a.3.- LDAP Proxy User: cn=admin,dc=rd-connect,dc=eu  
- 2a.4.- LDAP Proxy Password: Change it!  
- 2a.5- LDAP Contextless Login Root: dc=rd-connect,dc=eu  
- 2a.6.- LDAP Test User: cn=pwmTestUser,ou=people,dc=rd-connect,dc=eu  
+ - Change LDAP URL to ldaps://ldap.rd-connect.eu:636.  
+ - LDAP Certificates: Import from Server.   
+ - LDAP Proxy User: cn=admin,dc=rd-connect,dc=eu  
+ - LDAP Proxy Password: Change it!  
+ - LDAP Contextless Login Root: dc=rd-connect,dc=eu  
+ - LDAP Test User: cn=pwmTestUser,ou=people,dc=rd-connect,dc=eu  
  ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step2b.png)  
- 2b.1.- Username Search Filter: (&(objectClass=inetOrgPerson)(objectClass=basicRDproperties)(|(uid=%USERNAME%)(mail=%USERNAME%))(disabledAccount=FALSE))  
- 2b.2.- Attribute to use for Username: uid  
- 2b.3.- LDAP GUID Attribute: entryUUID  
- 2b.4.- LDAP Profile Display Name: cn  
+ - Username Search Filter: (&(objectClass=inetOrgPerson)(objectClass=basicRDproperties)(|(uid=%USERNAME%)(mail=%USERNAME%))(disabledAccount=FALSE))  
+ - Attribute to use for Username: uid  
+ - LDAP GUID Attribute: entryUUID  
+ - LDAP Profile Display Name: cn  
 			
 * Step 3.- Modules>Administration:
  ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step3.png)  
