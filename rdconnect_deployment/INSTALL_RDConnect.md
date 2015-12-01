@@ -74,7 +74,7 @@ systemctl restart tomcat7
 * Step 4.- Modules>Change Password:
  ![](https://github.com/inab/pwm/blob/master/rdconnect_deployment/images/step4.png)  
  - Change Password Permission:
-	- LDAP Profile: all  
+ 	- LDAP Profile: all  
 	- LDAP Search Filter: (&(objectClass=basicRDproperties)(disabledAccount=FALSE))  
 	- LDAP Base DN: ou=people,dc=rd-connect,dc=eu  
 		
